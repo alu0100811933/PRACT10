@@ -82,6 +82,7 @@ describe '# PRUEBA' do
    end
    
    
+   
    it "# Comprobando hija revista" do
       r1=Libro::Revista.new("el poder de los números primos")
       C3 = Cita::Cita.new()
