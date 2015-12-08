@@ -82,7 +82,11 @@ module Libro
     end
     
     def formatea()
-        puts "#{@t}, #{@a}\n#{@s}\n#{@e}; #{@ed} #{@f}\n#{@vect}"
+        #puts "#{@t}, #{@a}\n#{@s}\n#{@e}; #{@ed} #{@f}\n#{@vect}"
+        puts "#{@a} (#{@f}). Título: #{@t}"
+        puts "   (#{@ed}) (#{@s}). #{@e}"
+        puts " "
+        
         return "#{@t}, #{@a}\n#{@s}\n#{@e}; #{@ed} #{@f}\n#{@vect}"
     end
 

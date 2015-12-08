@@ -31,19 +31,60 @@ it "# comprobando ordenar por apellido" do
     LIBRO_B1 = Libro::Libro.new()
     LIBRO_C1 = Libro::Libro.new()
     LIBRO_D1 = Libro::Libro.new()
+    LIBRO_E1 = Libro::Libro.new()
 
-    LIBRO_A1.setA(%w{cristina tosco daniel daher Vanessa gonzalez Laura martin})
-    LIBRO_B1.setA(%w{Pepito Grillo})
+
+    LIBRO_A1.setA(%w{David Perez, Daniel Daher, Jorge Zamora})
+    LIBRO_A1.setFecha(1605)
+    LIBRO_A1.setT("Que vivia un hidalgo de los de lanza en astillero")
+    LIBRO_A1.setEdc("Primera edición")
+    LIBRO_A1.setS("Serie 1")
+    LIBRO_A1.setEdt("Planeta")
+
+
+
+    LIBRO_E1.setA(%w{David Perez, Daniel Daher, Jorge Zamora})
+    LIBRO_E1.setFecha(1605)
+    LIBRO_E1.setT("El ingenioso hidalgo don Quijote de la Mancha")
+    LIBRO_E1.setEdc("Primera edición")
+    LIBRO_E1.setS("Serie 1")
+    LIBRO_E1.setEdt("Santillana")
+        
+
+    LIBRO_B1.setA(%w{Miguel Cervantes})
+    LIBRO_B1.setFecha(1615)
+    LIBRO_B1.setT("No ha mucho tiempo")
+    LIBRO_B1.setEdc("Segunda edición")
+    LIBRO_B1.setS("Serie 2")
+    LIBRO_B1.setEdt("Anaya")
+
+
+    
     LIBRO_C1.setA(%w{Ana Anibal})
-    LIBRO_C1.setFecha(1500)
+    LIBRO_C1.setFecha(2000)
+    LIBRO_C1.setT("En un lugar de la mancha")
+    LIBRO_C1.setEdc("120ª edición")
+    LIBRO_C1.setS("Serie 2")
+    LIBRO_C1.setEdt("Planeta")
 
-    LIBRO_D1.setA(%w{Ana Anibal})
-    LIBRO_D1.setFecha(1900)
+
+  
+    
+    LIBRO_D1.setA(%w{Ana Anibal, Pedro Diaz})
+    LIBRO_D1.setFecha(1605)
+    LIBRO_D1.setT("De cuyo nombre no quiero acordarme")
+    LIBRO_D1.setEdc("Primera edición")
+    LIBRO_D1.setS("Serie 3")
+    LIBRO_D1.setEdt("Oxford")
+
+
+
 
       C1 = Cita::Cita.new()
   # C1.insertar(LIBRO_A)
 
     C1.insertar(LIBRO_A1)
+    C1.insertar(LIBRO_E1)
     C1.insertar(LIBRO_B1)
     C1.insertar(LIBRO_C1)
     C1.insertar(LIBRO_D1)
@@ -53,6 +94,24 @@ it "# comprobando ordenar por apellido" do
     
     #puts b_l.to_s
   end
+  it "# comprobando mayúscula la primera letra nombres y colocación inversa" do
+     expect(LIBRO_C1.geta).to eq("Anibal A.")
+   end
+   
+   
+   it "# comprobando hija revista" do
+      r1=Libro::Revista.new("el poder de los números primos")
+      C3 = Cita::Cita.new()
+      C3.insertar(r1)
+      expect(r1.nombrerevista).to eq("El Poder De Los Números Primos")
+   end
+   
+    it "# comprobando hija periodico" do
+     p1=Libro::Periodico.new("el poder de los números primos")
+     C4 = Cita::Cita.new()
+      C4.insertar(p1)
+       expect(p1.nombrerevista).to eq("El Poder De Los Números Primos")
+   end
   
 end
 

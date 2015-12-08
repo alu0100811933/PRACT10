@@ -42,7 +42,11 @@ module Cita
     
     
     def ordenar
-       @L_ordenada= @L.sort_by{ |f| [f.a[0],-f.f] }  #ordenar alfabeticamente por apellido
+       @L_ordenada= @L.sort_by do
+           |f| [f.a[0],-f.f,f.t[0]] 
+           
+           
+           end#ordenar alfabeticamente por apellido
      
     end
     
