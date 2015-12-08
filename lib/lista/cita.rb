@@ -24,7 +24,6 @@ attr_accessor :L_ordenada
                      valor.nombrerevista[i + 1]=valor.nombrerevista[i + 1].capitalize
                     end
                  end
-              puts valor.nombrerevista
         end
         
          if valor.instance_of?Libro::Periodico
@@ -35,7 +34,6 @@ attr_accessor :L_ordenada
                      valor.articulo[i + 1]=valor.articulo[i + 1].capitalize
                     end
                  end
-              puts valor.articulo
         end
         
         
@@ -45,7 +43,7 @@ attr_accessor :L_ordenada
         cant=valor.a.length
         copia=valor.a
        # puts valor.t[0][0]
-     #valor= valor.t.capitalize
+     valor.t= valor.t.capitalize
         valor.a= "#{valor.a[1].capitalize}, #{valor.a[0][0].capitalize}."
         if cant > 2
            for i in(2..(cant-1))
