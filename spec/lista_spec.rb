@@ -22,7 +22,7 @@ it "# comprobando ordenar por apellido" do
   it "# comprobando insertar desde cita" do
    L1 = Lista::Lista.new()
    C = Cita::Cita.new()
-   C.insertar(LIBRO_A)
+   #C.insertar(LIBRO_A)
   # C.mostrar()
   end
   
@@ -34,7 +34,7 @@ it "# comprobando ordenar por apellido" do
     LIBRO_E1 = Libro::Libro.new()
 
 
-    LIBRO_A1.setA(%w{David Perez, Daniel Daher, Jorge Zamora})
+    LIBRO_A1.setA(%w{David Perez Daniel Daher Jorge Zamora})
     LIBRO_A1.setFecha(1605)
     LIBRO_A1.setT("Que vivia un hidalgo de los de lanza en astillero")
     LIBRO_A1.setEdc("Primera edición")
@@ -43,7 +43,7 @@ it "# comprobando ordenar por apellido" do
 
 
 
-    LIBRO_E1.setA(%w{David Perez, Daniel Daher, Jorge Zamora})
+    LIBRO_E1.setA(%w{David Perez Daniel Daher Jorge Zamora})
     LIBRO_E1.setFecha(1605)
     LIBRO_E1.setT("El ingenioso hidalgo don Quijote de la Mancha")
     LIBRO_E1.setEdc("Primera edición")
@@ -70,7 +70,7 @@ it "# comprobando ordenar por apellido" do
 
   
     
-    LIBRO_D1.setA(%w{Ana Anibal, Pedro Diaz})
+    LIBRO_D1.setA(%w{Ana Anibal Pedro Diaz})
     LIBRO_D1.setFecha(1605)
     LIBRO_D1.setT("De cuyo nombre no quiero acordarme")
     LIBRO_D1.setEdc("Primera edición")
@@ -92,10 +92,18 @@ it "# comprobando ordenar por apellido" do
     C1.ordenar()
     C1.mostrar()
     
+    expect(C1.L_ordenada[0]).to eq(LIBRO_C1) 
+    expect(C1.L_ordenada[1]).to eq(LIBRO_D1)
+    expect(C1.L_ordenada[2]).to eq(LIBRO_B1)
+    expect(C1.L_ordenada[3]).to eq(LIBRO_E1)
+    expect(C1.L_ordenada[4]).to eq(LIBRO_A1)
     #puts b_l.to_s
   end
+  
+ 
+  
   it "# comprobando mayúscula la primera letra nombres y colocación inversa" do
-     expect(LIBRO_C1.geta).to eq("Anibal A.")
+     expect(LIBRO_C1.geta).to eq("Anibal, A.")
    end
    
    
@@ -110,8 +118,10 @@ it "# comprobando ordenar por apellido" do
      p1=Libro::Periodico.new("el poder de los números primos")
      C4 = Cita::Cita.new()
       C4.insertar(p1)
-       expect(p1.nombrerevista).to eq("El Poder De Los Números Primos")
+       expect(p1.articulo).to eq("El Poder De Los Números Primos")
    end
+   
+   
   
 end
 

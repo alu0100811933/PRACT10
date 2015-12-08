@@ -7,16 +7,46 @@ module Cita
  
   class Cita
       include Enumerable
-
+attr_accessor :L_ordenada
     def initialize()
         @L=Lista::Lista.new
         @L_ordenada=nil
     end
     
-    def insertar(valor)
+    
+    
+  def insertar(valor)
+        if valor.instance_of?Libro::Revista
+            valor.nombrerevista=valor.nombrerevista.capitalize
+            cant=valor.nombrerevista.length
+                for i in(0..(cant - 1))
+                 if valor.nombrerevista[i] == " "
+                     valor.nombrerevista[i + 1]=valor.nombrerevista[i + 1].capitalize
+                    end
+                 end
+              puts valor.nombrerevista
+        end
+        
+         if valor.instance_of?Libro::Periodico
+            valor.articulo=valor.articulo.capitalize
+            cant=valor.articulo.length
+                for i in(0..(cant - 1))
+                 if valor.articulo[i] == " "
+                     valor.articulo[i + 1]=valor.articulo[i + 1].capitalize
+                    end
+                 end
+              puts valor.articulo
+        end
+        
+        
+        if valor.instance_of?Libro::Libro
+                   # valor.t[0][0]="#{valor.t[0][0].capitalize}"
+
         cant=valor.a.length
         copia=valor.a
-        valor.a= "#{valor.a[1].capitalize} #{valor.a[0][0].capitalize}."
+       # puts valor.t[0][0]
+     #valor= valor.t.capitalize
+        valor.a= "#{valor.a[1].capitalize}, #{valor.a[0][0].capitalize}."
         if cant > 2
            for i in(2..(cant-1))
                 if i%2 == 0  #los elementos pares
@@ -24,10 +54,12 @@ module Cita
                     valor.a=valor.a + ' & ' + "#{copia[ i + 1 ].capitalize} " + aux + '.'
                 end
            end
-           # puts valor.a
+            #puts valor.a
+        end
         end
         @L.insert(valor)
     end
+    
     
     def mostrar()
       ind=@L_ordenada.length

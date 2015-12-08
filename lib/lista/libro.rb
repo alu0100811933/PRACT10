@@ -109,7 +109,7 @@ module Libro
   
  class Revista < Libro
     
-    attr_reader :nombrerevista
+    attr_accessor :nombrerevista
     
     def initialize(n)
       @nombrerevista=n
@@ -133,7 +133,7 @@ module Libro
   end
   
   class Periodico < Libro
-    attr_reader :articulo
+    attr_accessor :articulo
     def initialize(columna)
       @articulo=columna
       super()
@@ -156,7 +156,7 @@ module Libro
   end
   
   class Documento < Libro
-    attr_reader :url
+    attr_accessor :url
     def initialize(dir)
       @url=dir
       super()
