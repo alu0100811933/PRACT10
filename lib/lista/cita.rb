@@ -6,10 +6,11 @@ module Cita
 
  
   class Cita
-      
+      include Enumerable
+
     def initialize()
         @L=Lista::Lista.new
-        
+        @L_ordenada=nil
     end
     
     def insertar(valor)
@@ -23,18 +24,29 @@ module Cita
                     valor.a=valor.a + ' & ' + "#{copia[ i + 1 ].capitalize} " + aux + '.'
                 end
            end
-            puts valor.a
+           # puts valor.a
         end
         @L.insert(valor)
     end
     
-    def mostrar
-        @L.mostrar 
+    def mostrar()
+      ind=@L_ordenada.length
+        for i in(0..(ind-1))
+        
+            @L_ordenada[i].formatea()
+        
+        end
+             
+        #puts @L_ordenada.formatean()
     end
     
-    def formatea()
-       # puts 
+    
+    def ordenar
+       @L_ordenada= @L.sort_by{ |f| [f.a[0],-f.f] }  #ordenar alfabeticamente por apellido
+     
     end
+    
+  
   end
   
 end

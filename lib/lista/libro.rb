@@ -88,19 +88,17 @@ module Libro
 
    def <=> (other)
        return nil unless other.kind_of? Libro
-       @a <=> other.a
+       if @a == other.a
+            @f <=> other.f
+         
+        else
+           @a <=> other.a
+
+       end
    
    end
     
-    def == (other)
-     
-     if @a==other.a && @t==other.t && @s==other.s && @e==other.e && @ed==other.ed && @f==other.f && @vect==other.vect && @n_pag==other.n_pag
-       return true
-     else
-      return false
-     end  
-      
-    end 
+   
     
     
   end
